@@ -2,7 +2,7 @@
     "name": "@lentix/monorepo-root",
     "version": "0.0.0",
     "description": "Lentix Monorepo Project",
-    "main": "./build/index.js",
+    "main": "./dist/index.js",
     "private": true,
     "author": "Lentix",
     "license": "MIT",
@@ -98,11 +98,11 @@
     "engines": {
       "node": ">=16.0.0",
       "npm": "9.2.0",
-      "pnpm": "7.22.0"
+      "pnpm": "7.25.0"
     },
     "eslintConfig": {
       "extends": "./config/.eslintrc.js"
     },
-    "packageManager": "pnpm@7.22.0"
+    "packageManager": "pnpm@7.25.0"
   }
   
