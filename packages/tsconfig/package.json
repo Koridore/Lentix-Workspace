@@ -1,0 +1,35 @@
+{
+  "name": "@lentix/tsconfig",
+  "version": "0.0.0",
+  "private": true,
+  "files": [
+    "base.json",
+    "nextjs.json",
+    "react-library.json"
+  ],
+  "description": "These are base shared `tsconfig.json`s from which all other `tsconfig.json`'s inherit from.",
+  "main": "dist/index.js",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "install": "pnpm install",
+    "build": "pnpm run build --filter=!@lentix/lentix-types",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "NNA"
+  },
+  "keywords": [
+    "tsconfig",
+    "typescript"
+  ],
+  "author": "James Pryor",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "29.2.3",
+    "jest": "^29.3.1",
+    "ts-jest": "29.0.3",
+    "tsconfig-paths": "^4.1.1",
+    "typescript": "^4.7.2"
+  }
+}
