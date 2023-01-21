@@ -1,5 +1,5 @@
 import { ChannelType, Message } from "discord.js";
-import { checkPermissions, getGuildOption, sendTimedMessage } from "../functions";
+import { checkPermissions, getGuildOption, sendTimedMessage } from "../../../../../../apps/Discord/src/functions";
 import { BotEvent } from "../types";
 import mongoose from "mongoose";
 

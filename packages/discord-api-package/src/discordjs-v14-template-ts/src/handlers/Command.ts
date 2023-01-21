@@ -2,7 +2,7 @@ import { Client, Routes, SlashCommandBuilder } from "discord.js";
 import { REST } from "@discordjs/rest"
 import { readdirSync } from "fs";
 import { join } from "path";
-import { color } from "../functions";
+import { color } from "../../../../../../apps/Discord/src/functions";
 import { Command, SlashCommand } from "../types";
 
 module.exports = (client : Client) => {

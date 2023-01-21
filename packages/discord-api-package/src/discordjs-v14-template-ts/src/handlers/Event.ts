@@ -1,7 +1,7 @@
 import { Client } from "discord.js";
 import { readdirSync } from "fs";
 import { join } from "path";
-import { color } from "../functions";
+import { color } from "../../../../../../apps/Discord/src/functions";
 import { BotEvent } from "../types";
 
 module.exports = (client: Client) => {

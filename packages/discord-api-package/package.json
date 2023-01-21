@@ -35,12 +35,12 @@
   "homepage": "https://github.com/lentix/discord-api-package#readme",
   "engines": {
     "node": ">=16.0.0",
-    "npm": "9.2.0",
-    "pnpm": "7.22.0"
+    "npm": ">=9.2.0",
+    "pnpm": ">=7.25.0"
   },
   "engineStrict": true,
   "files": [
-    "./build",
+    "./dist",
     "src"
   ],
   "devDependencies": {
@@ -62,7 +62,7 @@
   },
   "optionalDependencies": {
     "@lentix/discord-optional-package": "workspace:*",
-	 "bufferutil": "^4.0.6",
+	  "bufferutil": "^4.0.6",
     "utf-8-validate": "^5.0.8"
   },
   "lint-staged": {

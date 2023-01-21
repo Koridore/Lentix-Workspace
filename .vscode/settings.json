@@ -1,0 +1,13 @@
+{
+    "cSpell.enableFiletypes": [
+        "!git-commit",
+        "c",
+        "dockerfile",
+        "dotenv",
+        "editorconfig",
+        "env",
+        "json",
+        "sql"
+    ],
+    "cSpell.language": "en,en-US"
+}

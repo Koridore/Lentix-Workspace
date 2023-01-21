@@ -1,5 +1,5 @@
-import { setGuildOption } from "../functions";
-import { Command } from "../types";
+import { setGuildOption } from "..///functions";
+import { Command } from "..///types";
 
 const command: Command = {
     name: "changePrefix",
