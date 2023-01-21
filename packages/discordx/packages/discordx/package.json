@@ -1,0 +1,84 @@
+{
+  "name": "discordx",
+  "version": "0.0.0",
+  "private": false,
+  "description": "Create a discord bot with TypeScript and Decorators!",
+  "keywords": [
+    "typescript",
+    "discord",
+    "bot",
+    "client",
+    "api",
+    "library",
+    "framework",
+    "tool",
+    "decorators"
+  ],
+  "homepage": "https://discordx.js.org",
+  "bugs": {
+    "url": "https://github.com/discordx-ts/discordx/issue",
+    "email": "indianoceanroleplay@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/discordx-ts/discordx"
+  },
+  "license": "Apache-2.0",
+  "contributors": [
+    "Owen Calvin <owen.gombas@gmail.com> (https://github.com/OwenCalvin)",
+    "Vijay Meena <indianoceanroleplay@gmail.com> (https://github.com/samarmeena)"
+  ],
+  "exports": {
+    ".": {
+      "import": "./build/esm/index.js",
+      "require": "./build/cjs/index.js"
+    }
+  },
+  "main": "./build/cjs/index.js",
+  "module": "./build/esm/index.js",
+  "files": [
+    "build",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "SECURITY.md",
+    "package.json"
+  ],
+  "scripts": {
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:changelog": "npx @discordx/changelog@latest --src src --match-tag discordx-* --replace-tag discordx-",
+    "build:typedoc": "npx typedoc src/index.ts --out ../../docs/static/api/discordx",
+    "build:cjs": "tsc --module CommonJs --outDir build/cjs && npm run postbuild:cjs",
+    "postbuild:cjs": "node ../../scripts/postbuild.mjs --path=build",
+    "build:esm": "tsc",
+    "test": "jest --detectOpenHandles",
+    "type-check": "tsc --noemit"
+  },
+  "dependencies": {
+    "@discordx/di": "^3.0.2",
+    "@discordx/internal": "^1.0.2",
+    "lodash": "^4.17.21",
+    "tslib": "^2.4.1"
+  },
+  "devDependencies": {
+    "@discordx/importer": "^1.1.10",
+    "@types/jest": "^29.2.3",
+    "@types/lodash": "^4.14.191",
+    "@types/node": "^18.11.10",
+    "discord.js": "^14.7.0",
+    "jest": "^29.3.1",
+    "ts-jest": "^29.0.3",
+    "ts-node": "^10.9.1",
+    "typescript": "4.9.3"
+  },
+  "peerDependencies": {
+    "discord.js": ">=14 || ^14.0.0-dev"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

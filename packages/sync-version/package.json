@@ -1,0 +1,34 @@
+{
+  "name": "@lentix/sync-version",
+  "version": "1.0.1",
+  "description": "Update version number with package.json",
+  "keywords": [
+    "build tool"
+  ],
+  "bin": "sync-version.js",
+  "scripts": {
+    "test": "eslint *.js && node test.js",
+    "preversion": "npm test",
+    "version": "node sync-version.js sync-version.js && git add .",
+    "postversion": "git push --follow-tags && npm publish",
+    "prepublish": "crlf --set=LF sync-version.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eight04/sync-version.git"
+  },
+  "author": "eight04 <eight04@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eight04/sync-version/issues",
+    "email": "eight04@gmail.com"
+  },
+  "homepage": "https://github.com/eight04/sync-version#readme",
+  "dependencies": {
+    "docopt": "^0.6.2"
+  },
+  "devDependencies": {
+    "crlf": "^1.1.1",
+    "eslint": "^5.16.0"
+  }
+}

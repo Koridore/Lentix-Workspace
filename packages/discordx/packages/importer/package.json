@@ -1,0 +1,63 @@
+{
+  "name": "@discordx/importer",
+  "version": "0.0.0",
+  "private": false,
+  "description": "A solution to import files on the module and commonjs at the same time",
+  "keywords": [
+    "typescript",
+    "javascript",
+    "importer",
+    "mjs",
+    "cjs",
+    "esm"
+  ],
+  "homepage": "https://github.com/discordx-ts/discordx/tree/main/packages/importer#readme",
+  "bugs": {
+    "url": "https://github.com/discordx-ts/discordx/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/discordx-ts/discordx.git"
+  },
+  "license": "Apache-2.0",
+  "contributors": [
+    "Vijay Meena <indianoceanroleplay@gmail.com> (https://github.com/samarmeena)"
+  ],
+  "exports": {
+    ".": {
+      "import": "./build/esm/index.mjs",
+      "require": "./build/cjs/index.cjs",
+      "types": "./index.d.ts"
+    }
+  },
+  "main": "./build/cjs/index.cjs",
+  "module": "./build/esm/index.mjs",
+  "types": "./index.d.ts",
+  "files": [
+    "build",
+    "index.d.ts",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "SECURITY.md",
+    "package.json"
+  ],
+  "scripts": {
+    "build": "tsc && tsc --p tsconfig.cjs.json && npm run postbuild",
+    "postbuild": "node ../../scripts/postbuild.mjs --path=build",
+    "build:changelog": "npx @discordx/changelog@latest --src src --match-tag importer-* --replace-tag importer-",
+    "type-check": "tsc --noemit"
+  },
+  "dependencies": {
+    "glob": "^8.0.3",
+    "tslib": "^2.4.1"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.0.0",
+    "@types/node": "^18.11.10",
+    "typescript": "4.9.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
