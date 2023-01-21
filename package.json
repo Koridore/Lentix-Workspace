@@ -103,6 +103,9 @@
     "eslintConfig": {
       "extends": "./config/.eslintrc.js"
     },
+    "publishConfig": {
+      "registry": "https://npm.pkg.github.com"
+    },
     "packageManager": "pnpm@7.25.0"
   }
   
