@@ -1,8 +1,8 @@
 # Monorepo Workspace Template
 
 [![License](https://img.shields.io/badge/license-MIT-blue)](https://opensource.org/licenses/MIT)
-[![Stars](https://img.shields.io/github/stars/KevinNovak/Discord-Bot-TypeScript-Template.svg)](https://github.com/KevinNovak/Discord-Bot-TypeScript-Template/stargazers)
-[![Pull Requests](https://img.shields.io/badge/Pull%20Requests-Welcome!-brightgreen)](https://github.com/KevinNovak/Discord-Bot-TypeScript-Template/pulls)
+[![Stars](https://img.shields.io/github/stars/Koridore/Workspace.svg)](https://github.com/Koridore/Workspace/stargazers)
+[![Pull Requests](https://img.shields.io/badge/Pull%20Requests-Welcome!-brightgreen)](https://github.com/Koridore/Workspace/pulls)
 
 -------------------------------------------------------
 
