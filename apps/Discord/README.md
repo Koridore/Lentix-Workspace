@@ -17,7 +17,7 @@
 </div>
 <div align="center">
   <img alt="npm" src="https://img.shields.io/npm/v/discord.js?label=D.JS&style=flat-square">
-
+</div>
 # Features
 - Discord.JS v14
 - Uses functions and ESM modules instead of classes
