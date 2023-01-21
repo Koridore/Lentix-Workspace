@@ -1,0 +1,7 @@
+packages:
+  - "bin/*"
+  - "docs/*"
+  - "apps/*"
+  - "scripts/"
+  - "packages/*"
+  - "websites/*"

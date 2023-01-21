@@ -1,0 +1,41 @@
+{
+    "$schema": "https://turbo.build/schema.json",
+    "pipeline": {
+      "build": {
+        "dependsOn": ["^build"],
+        "outputs": ["apps/**","discord/**", "website/**", "typedocs/**", "test/**"]
+      },
+      "build:typedoc": {
+        "dependsOn": ["^build"],
+        "outputs": [".typedoc/**"]
+      },
+      "build:website": {
+        "dependsOn": ["^build"],
+        "outputs": ["website/**"]
+      },
+      "build:discord": {
+        "dependsOn": ["^build"],
+        "outputs": ["discord/**"]
+      },
+      "build:test": {
+        "dependsOn": ["^build"],
+        "outputs": ["test/**"]
+      },
+      "lint": {
+        "outputs": []
+      },
+      "prettier-fix": {
+        "outputs": []
+      },
+      "dev": {
+        "cache": false
+      },
+      "start": {
+        "cache": false
+      },
+      "types": {
+        "outputs": ["build/**/*.d.ts"]
+      }
+    }
+  }
+  
