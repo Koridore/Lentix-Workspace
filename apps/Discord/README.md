@@ -17,7 +17,11 @@
 </div>
 <div align="center">
   <img alt="npm" src="https://img.shields.io/npm/v/discord.js?label=D.JS&style=flat-square">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/ana-log/analog-ts?style=flat-square">
+  <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/w/ana-log/analog-ts?style=flat-square">
+  <img alt="GitHub issues" src="https://img.shields.io/github/issues/ana-log/analog-ts?style=flat-square">
 </div>
+
 # Features
 - Discord.JS v14
 - Uses functions and ESM modules instead of classes
