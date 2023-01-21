@@ -1,5 +1,5 @@
 {
-    "name": "@lentix/monorepo-root",
+    "name": "@lentix/turbo-monorepo-workspace-root",
     "version": "0.0.0",
     "description": "Lentix Monorepo Project",
     "main": "./dist/index.js",
