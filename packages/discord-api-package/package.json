@@ -68,5 +68,12 @@
   "lint-staged": {
     "**/*.{js,ts}": "eslint --ext .js,.ts",
     "**/*.{js,ts,json,md}": "prettier --ignore-path .gitignore --write"
-  }
+  },
+  "eslintConfig": {
+    "extends": "./config/.eslintrc.js"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "packageManager": "pnpm@7.25.0"
 }

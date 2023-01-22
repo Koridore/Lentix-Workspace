@@ -1,25 +1,47 @@
-import {
-    Client,
-    ClientOptions,
-    GatewayIntentBits,
-    Collection,
-    PermissionFlagsBits,
-    ClientApplication,
-    InteractionType,
-    Interaction,
-    CommandInteraction,
-    Partials,
-    ButtonInteraction,
-    ModalSubmitInteraction,
-    SelectMenuInteraction,
-  } from "discord.js";
+import * as Sentry from "@sentry/node";
+import { RewriteFrames } from "@sentry/integrations";
+import { validateEnv } from "./utils/validateEnv";
+// import { validator } from "envalid";
 
-const { 
-    Guilds, 
-    MessageContent, 
-    GuildMessages, 
-    GuildMembers 
-} = GatewayIntentBits
+import {
+    Client,ClientOptions, GatewayIntentBits, Collection,PermissionFlagsBits,
+    ClientApplication,InteractionType,Interaction,CommandInteraction,
+    Partials,ButtonInteraction,ModalSubmitInteraction,SelectMenuInteraction,
+} from "discord.js";
+
+import { connectDatabase } from "./database/connectDatabase";
+
+import { onReady } from "./events/onReady";
+import { onInteraction } from "./events/onInteraction";
+
+import { IntentOptions } from "./config/IntentOptions";
+
+import { Command, SlashCommand } from "../../Discord/src/types";
+
+import * as dotenv from "dotenv";
+dotenv.config()
+
+import { readdirSync } from "fs";
+import { join } from "path";
+
+(async () => {
+    validateEnv();
+  
+    Sentry.init({
+      dsn: process.env.SENTRY_DSN,
+      tracesSampleRate: 1.0,
+      integrations: [
+        new RewriteFrames({
+          root: global.__dirname,
+        }),
+      ],
+    });
+
+    function validateEnv() {
+        throw new Error("Function not implemented.");
+    }
+
+const {Guilds, MessageContent, GuildMessages, GuildMembers} = GatewayIntentBits
 
 const client = new Client({
     intents:[
@@ -30,18 +52,14 @@ const client = new Client({
     ]
 })
 
-const token = "bot-token-here"; // add your token here
+client.on("ready", async () => await onReady(client));
 
 console.log("Bot is starting...");
 
-import { Command, SlashCommand } from "../../Discord/src/types";
-
-// import { validator } from "envalid";
-import { config } from "dotenv";
-import { readdirSync } from "fs";
-import { join } from "path";
-
-config()
+client.on(
+    "interactionCreate",
+    async (interaction) => await onInteraction(interaction)
+  );
 
 client.slashCommands = new Collection<string, SlashCommand>()
 client.commands = new Collection<string, Command>()
@@ -54,4 +72,8 @@ readdirSync(handlersDir).forEach(handler => {
 
 console.log(client);
 
-client.login(process.env.TOKEN)
+await connectDatabase();
+
+await client.login(process.env.TOKEN as string)
+
+})();
