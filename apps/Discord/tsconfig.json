@@ -1,11 +1,11 @@
 {
     "compilerOptions": {
         "lib": ["ESNext", "DOM"],
-        "target": "ES2022",
-        "module": "ESNext",
+        "target": "ES6",
+        "module": "CommonJS",
         "rootDir": "./src/",
         "outDir": "./dist/",
-        "strict": true,
+        "strict": false,
         "moduleResolution": "node",
         "importHelpers": true,
         "experimentalDecorators": true,
@@ -24,6 +24,6 @@
     "files": [
         "src/index.ts"
     ],
-    "include": ["./src**/*.ts", "../discord/src/index.ts"],
+    "include": ["./src**/*.ts", "../apps/Discord/src/index.ts"],
     "exclude": ["node_modules","dist", "**/*.spec.ts"],
 }

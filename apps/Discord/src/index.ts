@@ -1,3 +1,5 @@
+import { __awaiter } from "tslib";
+
 import * as Sentry from "@sentry/node";
 import { RewriteFrames } from "@sentry/integrations";
 import { validateEnv } from "./utils/validateEnv";
