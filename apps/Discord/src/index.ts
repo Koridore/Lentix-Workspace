@@ -3,14 +3,9 @@
 // Imports - 
 import * as Sentry from "@sentry/node"; //
 import { RewriteFrames } from "@sentry/integrations"; //
-
-// Utils
-import { validateEnv } from "./utils/validateEnv"; // validatEnv
-
+import { validateEnv } from "./utils/validateEnv"; // utils/validatEnv
 // import { validator } from "envalid"; //
-
-// Discords API
-import {
+import { //Dependancy for Discord.js API
     Client,
     ClientOptions,
     GatewayIntentBits,
@@ -23,29 +18,22 @@ import {
     ButtonInteraction,
     ModalSubmitInteraction,
     Partials,
-} from "discord.js"; //
+} from "discord.js";
+// import { read, readdirSync } from "fs";
+// import { join } from "path";
+// import { handlersDir } from "../src/handlersDir";
+// import { regCMD } from "../src/deploy-commands";
+// import { devConfig } from "../devconfig";
+import path from "node:path";
+import { connectDatabase } from "./database/CamperBD/connectDatabase"; // databases/connectDatabase
+import { onReady } from "./events/onReady";// events/onReady
+import { onInteraction } from "./events/onInteraction"; // events/onInteraction
+// import { IntentOptions } from "./config/IntentOptions"; // configsIntentOptions
+import { client } from './clientIntents';
+import { Command, SlashCommand } from "../../Discord/src/types"; // types
+import dotenv from "dotenv"; //
 
-// Databases
-import { connectDatabase } from "./database/connectDatabase";
-
-// Events
-import { onReady } from "./events/onReady";
-import { onInteraction } from "./events/onInteraction";
-
-// Configs
-import { IntentOptions } from "./config/IntentOptions"; // IntentOptions
-
-// Types
-import { Command, SlashCommand } from "../../Discord/src/types";
-
-//
-import * as dotenv from "dotenv"; // dotenv
-
-dotenv.config() //
-
-// 
-import { readdirSync } from "fs";
-import { join } from "path";
+dotenv.config(); // 
 
 // Opening validateEnv
 (async () => {
@@ -58,44 +46,27 @@ import { join } from "path";
       new RewriteFrames({
         root: global.__dirname,
       }),
-    ],
-  }); console.log("Success! - validated bot token..."); //
-
-  // Client Intents
-const { Guilds, MessageContent, GuildMessages, GuildMembers } = GatewayIntentBits
-const client = new Client({
-    intents:[
-        Guilds, 
-        MessageContent, 
-        GuildMessages, 
-        GuildMembers
     ]
-});
+  }); console.log("Success! - validated bot token..."); // Logs the console
 
-//
+// Initilizing Client
 client.on("ready", async () => await onReady(client)); console.log("Success! - bot is starting...");
 
-//
+// Creating Interaction
 client.on("interactionCreate", async (interaction) => await onInteraction(interaction));
 
-//
+// Commands
 client.slashCommands = new Collection<string, SlashCommand>()
 client.commands = new Collection<string, Command>()
 client.cooldowns = new Collection<string, number>()
 
-//Redirects
-const handlersDir = join(__dirname, "./handlers")
-readdirSync(handlersDir).forEach(handler => {
-    require(`${handlersDir}/${handler}`)(client)
-}); console.log(client);
-
-// Connections
+// Awaiting Connections
 await connectDatabase(); // Awaiting database connection
 
-await client.login(process.env.TOKEN as string); // Awaiting bots connection
+await client.login(process.env.TOKEN as string); // Awaiting client connection & login the bot using .env file bot Token.
 
 } // Closes validateEnv();
 
 ) // Closes (async () => {
 
-(); // Prints Missing Discord bot token error
+(); // Prints Missing Discord bot token error if no valid bot TOKEN is provided in the .env file.

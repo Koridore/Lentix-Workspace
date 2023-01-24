@@ -1,6 +1,6 @@
 import chalk from "chalk"
 import { Guild, GuildMember, PermissionFlagsBits, PermissionResolvable, PermissionsBitField, TextChannel } from "discord.js"
-import GuildDB from "../../../packages/discord-api-package/src/discordjs-v14-template-ts/src/schemas/Guild"
+import GuildDB from "../src/schemas/Guild"
 import { GuildOption } from "../../../packages/discord-api-package/src/discordjs-v14-template-ts/src/types"
 import mongoose from "mongoose";
 

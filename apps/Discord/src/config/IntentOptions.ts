@@ -1,3 +1,3 @@
-import { IntentsString } from "discord.js";
+// import { IntentString } from "discord.js";
 
-export const IntentOptions: IntentsString[] = ["GUILDS", "GUILD_MESSAGES"];
+export const IntentOptions: any [] = ["GUILDS", "GUILD_MESSAGES"];

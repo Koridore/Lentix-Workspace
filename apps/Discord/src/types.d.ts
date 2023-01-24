@@ -41,6 +41,17 @@ declare global {
             PREFIX: string,
             MONGO_URI: string,
             MONGO_DATABASE_NAME: string
+            SENTRY_DSN: string
+            NODE_ENV: string
+            NODE_ENV: string
+            MONGO_DB_USER: string
+            MONGO_DB_PASSWORD: string
+            JWT_SECRETS: string
+            SMTP_HOST: string
+            SMTP_PORT: string
+            SMTP_USERNAME: string
+            SMTP_PASSWORD: string
+            SMTP_SENDER: string
         }
     }
 }
@@ -52,3 +63,10 @@ declare module "discord.js" {
         cooldowns: Collection<string, number>
     }
 }
+
+export interface UserDefaults {
+    // The absence of a value represents 'system'
+    colorThemeOverride?: "dark" | "light";
+  }
+
+  export default model (types)

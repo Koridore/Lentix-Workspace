@@ -25,7 +25,6 @@
 # Features
 - Discord.JS v14
 - Uses functions and ESM modules instead of classes
-- [VSCode Extension](https://marketplace.visualstudio.com/items?itemName=BossDaily.analog-ts-snippets&ssr=false)
 - Command Handler
 - Context Menu Handler
 - Event Handler
@@ -33,8 +32,10 @@
 - Modal handler
 - Select Menu Handler
 
+- [VSCode Extension](https://marketplace.visualstudio.com/items?itemName=BossDaily.analog-ts-snippets&ssr=false)
+
 # Supports
-- Supports Discord.JS v14 (not v13)
+- Supports Discord.JS v14+
 - discord-api-types
 - Slash Commands
 - Embeds
@@ -46,3 +47,26 @@
 - Collections
 
 ## Getting Started
+
+```sh
+git clone https://github.com/ana-log/analog-ts.git
+cd analog-ts
+npm i
+```
+- Copy `.env.example` and paste it in the main directory
+- Rename it to just `.env`
+- Put your bot token in `TOKEN=` 
+- Example `TOKEN=239ung2389g-0n2q9gjn20-g98n293838h9wg2a-awjj`
+- To start the bot do ↓
+```sh
+npm start
+```
+### If you want to setup a dev environment 
+1. Open up 2 Terminals in VS Code (or your IDE of choice)
+2. First terminal do `npm run watch`
+3. Second terminal do `npm run dev` 
+<br>
+<br>
+This should restart the bot everytime you make a code change
+<
+<br>

@@ -1,6 +1,6 @@
 import { connect } from "mongoose";
-import { errorHandler } from "../utils/errorHandler";
-import { logHandler } from "../utils/logHandler";
+import { errorHandler } from "./utils/errorHandler";
+import { logHandler } from "./utils/logHandler";
 
 export const connectDatabase = async (): Promise<void> => {
   try {
@@ -10,4 +10,5 @@ export const connectDatabase = async (): Promise<void> => {
   } catch (error) {
     errorHandler("database connection", error);
   }
-};
+  // connect.mongoose.set('strictQuery', true);
+}
